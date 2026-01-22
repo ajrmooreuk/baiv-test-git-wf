@@ -1,0 +1,13 @@
+branchName: '${type}/issue-${issue.number}-${issue.title,}'
+autoCloseIssue: false
+openDraftPR: true
+prSkipCI: false
+branches:
+  - label: feature
+    prefix: feature/
+  - label: bug
+    prefix: fix/
+  - label: chore
+    prefix: chore/
+  - label: enhancement
+    prefix: feature/

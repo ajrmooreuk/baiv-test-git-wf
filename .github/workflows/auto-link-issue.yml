@@ -1,0 +1,18 @@
+name: Auto-link Issue to PR
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  link-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Link issue from branch name
+        uses: tkt-actions/add-issue-links@v1.8.1
+        with:
+          branch-prefix: 'issue-'
+          link-style: body
+          resolve: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

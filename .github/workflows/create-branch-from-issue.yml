@@ -1,0 +1,15 @@
+name: Create Branch from Issue
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'ready-to-develop'
+    steps:
+      - name: Create issue branch
+        uses: robvanderleek/create-issue-branch@v1.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
